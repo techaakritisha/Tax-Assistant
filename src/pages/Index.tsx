@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { TaxCalculator } from "@/components/TaxCalculator";
 import { motion } from "framer-motion";
 
-const Index = () => {
+const HomePage = () => {
   return (
     <div className="min-h-screen">
       <Header />
@@ -28,4 +28,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default HomePage;
