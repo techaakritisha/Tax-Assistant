@@ -76,12 +76,16 @@ To install and run DhanRakshak locally, follow these steps:
    npm run dev
    ```
 
-## Prerequisites
+## Design Idea & Approach
 
 - **Node.js**: Ensure you have Node.js installed. You can download it from [here](https://nodejs.org/)
 - **npm**: npm is included with Node.js, but you can check if it is installed by running `npm -v`
 - **TypeScript**: Make sure you have TypeScript installed globally by running `npm install -g typescript`
 - **Vite**: Ensure you have Vite installed. You can add it to your project by running `npm install vite`
+  
+## Design Idea & Approach
+  **Architecture**
+   ![Screenshot (208)](https://github.com/user-attachments/assets/4ec6d3cb-6dd1-42f8-84e7-c4846e5838eb)
 
 ## Usage
 
