@@ -5,33 +5,46 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { MessageSquare, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useToast } from "@/components/ui/use-toast";
 
 export const ChatBot = () => {
+  const { toast } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([
     { text: "Hi! I'm your AI tax assistant. How can I help you today?", isUser: false },
   ]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim()) return;
 
     // Add user message
-    setMessages([...messages, { text: message, isUser: true }]);
+    setMessages((prev) => [...prev, { text: message, isUser: true }]);
+    const userMessage = message;
+    setMessage("");
+    setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      // This is where you'll integrate your API
+      // Replace this with your actual API call
       setMessages((prev) => [
         ...prev,
         {
-          text: "I'm a demo chatbot. In the full version, I'll provide real tax assistance!",
+          text: "This is a placeholder response. Please provide your API key to enable full functionality.",
           isUser: false,
         },
       ]);
-    }, 1000);
-
-    setMessage("");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to get response from the assistant",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -84,8 +97,11 @@ export const ChatBot = () => {
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type your message..."
                     className="flex-1"
+                    disabled={isLoading}
                   />
-                  <Button type="submit">Send</Button>
+                  <Button type="submit" disabled={isLoading}>
+                    {isLoading ? "..." : "Send"}
+                  </Button>
                 </form>
               </CardContent>
             </Card>

@@ -2,21 +2,28 @@
 import { Header } from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const About = () => {
-  const teamMembers = [
+  const taxGrowthData = [
     {
-      name: "Rajesh Kumar",
-      role: "CEO & Founder",
-      description: "Expert in tax law and financial planning with 15+ years of experience",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
+      year: '2022',
+      'Direct Tax': 14.1,
+      'Indirect Tax': 12.3,
+      'Total Collections': 13.2,
     },
     {
-      name: "Our Team",
-      role: "Tax Experts & Developers",
-      description: "A dedicated team of tax professionals and technology experts",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-    }
+      year: '2023',
+      'Direct Tax': 15.8,
+      'Indirect Tax': 13.9,
+      'Total Collections': 14.85,
+    },
+    {
+      year: '2024',
+      'Direct Tax': 17.2,
+      'Indirect Tax': 15.1,
+      'Total Collections': 16.15,
+    },
   ];
 
   return (
@@ -48,14 +55,29 @@ const About = () => {
                 goal is to make tax planning accessible, understandable, and
                 stress-free for everyone.
               </p>
-              <h3>Why Choose DhanRakshak?</h3>
-              <ul>
-                <li>AI-powered tax calculations and recommendations</li>
-                <li>Real-time assistance through our chatbot</li>
-                <li>Comprehensive resource library</li>
-                <li>User-friendly interface</li>
-                <li>Secure and confidential</li>
-              </ul>
+              <h3>Growth and Impact</h3>
+              <div className="h-[400px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={taxGrowthData}
+                    margin={{
+                      top: 20,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="year" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="Direct Tax" fill="#8884d8" />
+                    <Bar dataKey="Indirect Tax" fill="#82ca9d" />
+                    <Bar dataKey="Total Collections" fill="#ffc658" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
               <h3>Our Values</h3>
               <ul>
                 <li>Transparency in all our operations</li>
@@ -66,34 +88,6 @@ const About = () => {
               </ul>
             </CardContent>
           </Card>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <Card className="card-gradient">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle>{member.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="font-medium text-primary mb-2">{member.role}</p>
-                    <p className="text-muted-foreground">{member.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
       </main>
     </div>
