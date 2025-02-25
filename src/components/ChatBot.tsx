@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { MessageSquare, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export const ChatBot = () => {
   const { toast } = useToast();
@@ -27,19 +28,14 @@ export const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/taxbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt: userMessage }),
+      const { data, error } = await supabase.functions.invoke('taxbot', {
+        body: { prompt: userMessage }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to get response from the assistant');
+      if (error) {
+        throw error;
       }
 
-      const data = await response.json();
       setMessages((prev) => [...prev, { text: data.generatedText, isUser: false }]);
     } catch (error) {
       console.error('Error:', error);
@@ -130,3 +126,4 @@ export const ChatBot = () => {
     </div>
   );
 };
+
