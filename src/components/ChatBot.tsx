@@ -27,16 +27,22 @@ export const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      // This is where you'll integrate your API
-      // Replace this with your actual API call
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: "This is a placeholder response. Please provide your API key to enable full functionality.",
-          isUser: false,
+      const response = await fetch('/api/taxbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ]);
+        body: JSON.stringify({ prompt: userMessage }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get response from the assistant');
+      }
+
+      const data = await response.json();
+      setMessages((prev) => [...prev, { text: data.generatedText, isUser: false }]);
     } catch (error) {
+      console.error('Error:', error);
       toast({
         title: "Error",
         description: "Failed to get response from the assistant",
