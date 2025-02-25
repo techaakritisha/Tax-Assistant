@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -36,7 +35,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="container mx-auto px-4 pt-24">
+      <main className="container mx-auto px-4 pt-24 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,23 +44,34 @@ const Contact = () => {
         >
           <Card className="card-gradient">
             <CardHeader>
-              <CardTitle className="text-3xl">Contact Us</CardTitle>
+              <CardTitle className="text-3xl font-bold text-center">
+                Get in Touch
+              </CardTitle>
+              <p className="text-muted-foreground text-center mt-2">
+                We’d love to hear from you! Whether you have a question, feedback,
+                or just want to say hello, drop us a message below.
+              </p>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name" className="text-lg">
+                    Your Name
+                  </Label>
                   <Input
                     id="name"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
+                    placeholder="Enter your name"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-lg">
+                    Your Email
+                  </Label>
                   <Input
                     id="email"
                     type="email"
@@ -69,11 +79,14 @@ const Contact = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
+                    placeholder="Enter your email"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message" className="text-lg">
+                    Your Message
+                  </Label>
                   <Textarea
                     id="message"
                     value={formData.message}
@@ -81,6 +94,7 @@ const Contact = () => {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     className="min-h-[150px]"
+                    placeholder="How can we help you?"
                     required
                   />
                 </div>

@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -38,24 +37,32 @@ const About = () => {
         >
           <Card className="card-gradient mb-8">
             <CardHeader>
-              <CardTitle className="text-3xl">About DhanRakshak</CardTitle>
+              <CardTitle className="text-3xl font-bold">About DhanRakshak</CardTitle>
             </CardHeader>
             <CardContent className="prose prose-lg dark:prose-invert">
-              <p>
-                DhanRakshak is your AI-powered tax assistant, designed to make tax
-                planning and management simpler and more accessible for everyone.
-                Our platform combines cutting-edge artificial intelligence with
-                expert tax knowledge to provide you with personalized guidance and
-                support.
+              <p className="text-lg leading-relaxed">
+                At DhanRakshak, we believe managing taxes shouldn’t be overwhelming. 
+                We’re here to simplify tax planning and management, making it accessible 
+                and stress-free for individuals and businesses alike. By combining 
+                advanced technology with deep tax expertise, we provide personalized 
+                guidance tailored to your unique financial needs.
               </p>
-              <h3>Our Mission</h3>
-              <p>
-                We strive to demystify the complex world of taxation and empower
-                individuals and businesses to make informed financial decisions. Our
-                goal is to make tax planning accessible, understandable, and
-                stress-free for everyone.
+
+              <h3 className="text-2xl font-semibold mt-8 mb-4">Our Mission</h3>
+              <p className="text-lg leading-relaxed">
+                Our mission is to empower you with the tools and knowledge to navigate 
+                the complexities of taxation confidently. We aim to transform the way 
+                you approach taxes—turning confusion into clarity and uncertainty into 
+                confidence. Whether you’re an individual or a business, we’re here to 
+                help you make smarter financial decisions.
               </p>
-              <h3>Growth and Impact</h3>
+
+              <h3 className="text-2xl font-semibold mt-8 mb-4">Growth and Impact</h3>
+              <p className="text-lg leading-relaxed mb-6">
+                Over the years, we’ve witnessed remarkable growth in tax collections, 
+                reflecting the trust and confidence our users place in us. Below is a 
+                snapshot of our impact:
+              </p>
               <div className="h-[400px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
@@ -78,13 +85,14 @@ const About = () => {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-              <h3>Our Values</h3>
-              <ul>
-                <li>Transparency in all our operations</li>
-                <li>Commitment to accuracy and compliance</li>
-                <li>Innovation in tax solutions</li>
-                <li>Customer-first approach</li>
-                <li>Continuous learning and improvement</li>
+
+              <h3 className="text-2xl font-semibold mt-8 mb-4">Our Values</h3>
+              <ul className="list-disc list-inside text-lg leading-relaxed">
+                <li className="mb-2"><strong>Transparency:</strong> We believe in clear, honest communication in everything we do.</li>
+                <li className="mb-2"><strong>Accuracy:</strong> Precision and compliance are at the heart of our solutions.</li>
+                <li className="mb-2"><strong>Innovation:</strong> We constantly evolve to bring you cutting-edge tax tools and insights.</li>
+                <li className="mb-2"><strong>Customer-Centricity:</strong> Your needs come first—always.</li>
+                <li className="mb-2"><strong>Continuous Improvement:</strong> We’re committed to learning and growing to serve you better.</li>
               </ul>
             </CardContent>
           </Card>

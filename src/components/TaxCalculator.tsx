@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -80,7 +79,7 @@ export const TaxCalculator = () => {
     >
       <Card className="glass-panel p-6 space-y-6">
         <div className="space-y-2 text-center">
-          <h2 className="text-3xl font-bold">Tax Calculator</h2>
+          <h2 className="text-3xl font-bold text-blue-600">Tax Calculator</h2>
           <p className="text-muted-foreground">
             Calculate your taxes with real-time updates
           </p>
@@ -88,7 +87,7 @@ export const TaxCalculator = () => {
 
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="income" className="text-right">
+            <Label htmlFor="income" className="text-right text-blue-600">
               Annual Income
             </Label>
             <Input
@@ -101,7 +100,7 @@ export const TaxCalculator = () => {
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="deductions" className="text-right">
+            <Label htmlFor="deductions" className="text-right text-blue-600">
               Deductions
             </Label>
             <Input
@@ -115,7 +114,7 @@ export const TaxCalculator = () => {
           </div>
         </div>
 
-        <Button onClick={calculateTax} className="w-full">
+        <Button onClick={calculateTax} className="w-full bg-blue-600 hover:bg-blue-700">
           Calculate Tax
         </Button>
 

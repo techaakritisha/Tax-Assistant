@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { TaxCalculator } from "@/components/TaxCalculator";
 import { motion } from "framer-motion";
@@ -25,50 +24,19 @@ const HomePage = () => {
               Your intelligent tax companion for a secure financial future. Calculate taxes with precision, 
               get personalized advice, and make informed decisions effortlessly.
             </p>
-            <div className="flex gap-4 justify-center mt-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex items-center gap-2 text-muted-foreground"
-              >
-                <span className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  ₹
-                </span>
-                <p>Smart Tax Calculations</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex items-center gap-2 text-muted-foreground"
-              >
-                <span className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  AI
-                </span>
-                <p>AI-Powered Assistance</p>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Calculator Section */}
-      <section className="py-16 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center space-y-4 mb-12"
-          >
-            <h2 className="text-4xl font-bold">Tax Calculator</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Calculate your taxes instantly with our advanced calculator featuring real-time updates 
-              and detailed visualizations
-            </p>
-          </motion.div>
-          <TaxCalculator />
+          <div className="text-center space-y-4 mb-8">
+            <h2 className="text-4xl font-bold">Plan Your Taxes Smarter</h2>
+          </div>
+          <div className="p-6 bg-white rounded-2xl shadow-lg max-w-4xl mx-auto">
+            <TaxCalculator />
+          </div>
         </div>
       </section>
 
